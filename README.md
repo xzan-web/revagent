@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lalexi Next.js Starter
 
-## Getting Started
+A modern Next.js 15 starter template built with TypeScript, featuring a clean feature-based architecture and beautiful UI components.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15.5.2** with App Router
+- **TypeScript** with strict mode enabled
+- **Feature-based architecture** for scalable development
+- **CSS Modules** for component-scoped styling
+- **Static Site Generation (SSG)** for optimal performance
+- **ESLint** configuration for code quality
+- **Responsive design** that works on all devices
+- **Modern UI components** with accessibility in mind
+
+## 📁 Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── about/
+│       └── page.tsx       # About page
+├── features/              # Feature-based components
+│   ├── home/
+│   │   └── components/
+│   │       ├── Hero/      # Hero section
+│   │       └── Features/  # Features section
+│   └── about/
+│       └── components/
+│           └── Mission/   # Mission section
+├── shared/                # Shared components and utilities
+│   └── components/
+│       └── ui/
+│           └── Button/    # Reusable Button component
+├── styles/
+│   └── globals.css        # Global styles
+└── AGENTS.md              # Development guidelines
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+3. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 Available Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗️ Architecture Principles
 
-## Deploy on Vercel
+This starter follows a **feature-based architecture** that promotes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Separation of concerns** - Each feature is self-contained
+- **Scalability** - Easy to add new features without affecting existing ones
+- **Reusability** - Shared components can be used across features
+- **Maintainability** - Clear structure makes code easy to understand and modify
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Styling
+
+- **CSS Modules** for component-scoped styles
+- **Global styles** in `styles/globals.css` for base styles
+- **Responsive design** with mobile-first approach
+- **Modern CSS** with flexbox and grid layouts
+
+## 📱 Pages
+
+- **Home** (`/`) - Hero section and features showcase
+- **About** (`/about`) - Mission statement and company values
+
+## 🔧 Development Guidelines
+
+Please refer to `AGENTS.md` for detailed development guidelines, including:
+
+- File naming conventions
+- Component structure
+- Import/export patterns
+- TypeScript usage
+- CSS Module patterns
+
+## 🚀 Deployment
+
+This project is configured for static export and can be deployed to:
+
+- **Vercel** (recommended)
+- **Netlify**
+- **GitHub Pages**
+- Any static hosting service
+
+Build the project:
+```bash
+npm run build
+```
+
+The static files will be generated in the `out/` directory.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+Built with ❤️ using Next.js and TypeScript
