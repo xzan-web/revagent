@@ -1,0 +1,208 @@
+---
+globs: *.ts,*.tsx
+description: TypeScript and component development guidelines
+---
+
+# TypeScript & Component Guidelines
+
+## Component Structure
+
+### Server Components (Default)
+
+```typescript
+// ✅ CORRECT: Server Component
+import type { HeroProps } from '@/shared/types/marketing.types'
+
+export function Hero({ headline, subtitle, buttons }: HeroProps) {
+  return (
+    <section className="py-20 px-4">
+      {/* Component content */}
+    </section>
+  )
+}
+```
+
+### Client Components (When Needed)
+
+Add `'use client'` ONLY when you need:
+- useState, useEffect, or other hooks
+- Event handlers (onClick, onChange)
+- Browser APIs (window, document)
+
+```typescript
+// ✅ CORRECT: Client Component
+'use client'
+
+import { useState } from 'react'
+
+export function InteractiveComponent() {
+  const [state, setState] = useState(false)
+  return <div onClick={() => setState(!state)}>...</div>
+}
+```
+
+## TypeScript Patterns
+
+### Props with Interfaces
+
+```typescript
+// ✅ CORRECT
+interface ButtonProps {
+  text: string
+  href: string
+  variant?: 'primary' | 'secondary' | 'outline'
+  onClick?: () => void
+}
+
+export function Button({ text, href, variant = 'primary' }: ButtonProps) {
+  // Implementation
+}
+```
+
+### Type Imports
+
+```typescript
+// ✅ CORRECT: Use type imports for types
+import type { Metadata } from 'next'
+import type { HeroProps } from '@/shared/types/marketing.types'
+
+// ✅ CORRECT: Regular imports for components
+import { HeroCentered } from '@/shared/components/marketing'
+```
+
+### NO 'any' Type
+
+```typescript
+// ❌ WRONG
+const data: any = fetchData()
+
+// ✅ CORRECT
+interface ApiResponse {
+  data: string[]
+  status: number
+}
+const data: ApiResponse = fetchData()
+```
+
+## Tailwind CSS in Components
+
+### Utility Classes
+
+```typescript
+// ✅ CORRECT: Tailwind utilities
+<div className="flex flex-col items-center justify-center min-h-screen py-20 px-4">
+
+// ✅ CORRECT: Conditional classes
+<button className={`px-8 py-4 rounded-lg ${
+  variant === 'primary' 
+    ? 'bg-blue-600 text-white hover:bg-blue-700' 
+    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+}`}>
+
+// ✅ CORRECT: Responsive utilities
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+```
+
+### Compose Utilities
+
+```typescript
+// ✅ CORRECT: For complex components
+const baseStyles = "px-8 py-4 rounded-lg font-semibold transition-all"
+const variantStyles = {
+  primary: "bg-blue-600 text-white hover:bg-blue-700",
+  secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200"
+}
+
+<button className={`${baseStyles} ${variantStyles[variant]}`}>
+```
+
+### NEVER Use These
+
+```typescript
+// ❌ WRONG: Inline styles
+<div style={{ display: 'flex', padding: '20px' }}>
+
+// ❌ WRONG: CSS modules
+import styles from './Component.module.css'
+
+// ❌ WRONG: Separate CSS files
+import './Component.css'
+```
+
+## Component Exports
+
+```typescript
+// ✅ CORRECT: Named exports
+export function Button() { }
+export function HeroSimple() { }
+
+// ❌ WRONG: Default exports
+export default Button
+```
+
+## Component Props Pattern
+
+```typescript
+// ✅ CORRECT: Destructure with defaults
+export function Component({ 
+  title, 
+  subtitle, 
+  theme = 'light',
+  columns = 3 
+}: ComponentProps) {
+  // Implementation
+}
+
+// ✅ CORRECT: Optional props marked with ?
+interface ComponentProps {
+  title: string
+  subtitle?: string
+  theme?: 'light' | 'dark'
+  columns?: 2 | 3 | 4
+}
+```
+
+## Marketing Components
+
+When working with components in [shared/components/marketing/](mdc:shared/components/marketing/):
+
+1. **Check types first**: [shared/types/marketing.types.ts](mdc:shared/types/marketing.types.ts)
+2. **Use proper imports**: Import from barrel exports (index.tsx)
+3. **Pass all required props**: TypeScript will guide you
+4. **Use theme variants**: light, dark, gradient, blue, purple
+
+```typescript
+// ✅ CORRECT: Import from marketing barrel export
+import { HeroCentered, FeaturesGrid, CTASimple } from '@/shared/components/marketing'
+
+// Use with proper props
+<HeroCentered
+  headline="Your Headline"
+  subtitle="Your subtitle"
+  buttons={[{ text: 'CTA', href: '#' }]}
+  theme="gradient"
+/>
+```
+
+## Accessibility
+
+Always include:
+
+```typescript
+// ✅ CORRECT
+<button aria-label="Close menu">
+<img src="/image.jpg" alt="Descriptive text" />
+<nav aria-label="Main navigation">
+```
+
+## File Organization
+
+```
+ComponentName/
+├── index.tsx              # Main export
+├── ComponentVariant1.tsx  # Variant implementations
+├── ComponentVariant2.tsx
+└── types.ts              # Component-specific types (if complex)
+```
+
+Reference [ARCHITECTURE.md](mdc:ARCHITECTURE.md) for complete structure details.

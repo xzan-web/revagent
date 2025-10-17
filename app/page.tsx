@@ -1,11 +1,7 @@
-import { Hero } from '@/features/home/components/Hero'
-import { Features } from '@/features/home/components/Features'
-
 export default function HomePage() {
   return (
-    <main>
-      <Hero />
-      <Features />
+    <main className="flex min-h-screen items-center justify-center">
+      <h1 className="text-4xl font-bold">Hello World</h1>
     </main>
   )
 }

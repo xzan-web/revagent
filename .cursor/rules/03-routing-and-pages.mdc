@@ -1,0 +1,310 @@
+---
+globs: app/**/*.tsx,app/**/*.ts
+description: Next.js App Router routing patterns and page structure
+---
+
+# Next.js App Router - Routing & Pages
+
+## Route File Structure
+
+Route files in `app/` must be **thin** - composition only, no business logic.
+
+### Page Template
+
+```typescript
+// app/[page]/page.tsx
+import type { Metadata } from 'next'
+import { Component1, Component2 } from '@/shared/components/marketing'
+
+export const metadata: Metadata = {
+  title: 'Page Title',
+  description: 'Page description for SEO',
+}
+
+export default function PageName() {
+  return (
+    <main>
+      <Component1 {...data1} />
+      <Component2 {...data2} />
+    </main>
+  )
+}
+```
+
+## DO's and DON'Ts
+
+### ✅ DO
+
+```typescript
+// ✅ Import components from shared or features
+import { HeroCentered } from '@/shared/components/marketing'
+
+// ✅ Define data objects inline or in separate data file
+const heroData = {
+  headline: "Build Better",
+  subtitle: "Ship faster",
+  buttons: [{ text: "Start", href: "#" }]
+}
+
+// ✅ Compose components
+export default function Page() {
+  return (
+    <main>
+      <HeroCentered {...heroData} />
+    </main>
+  )
+}
+
+// ✅ Use Server Components by default (no 'use client')
+// ✅ Set metadata for SEO
+export const metadata: Metadata = { ... }
+```
+
+### ❌ DON'T
+
+```typescript
+// ❌ NO state in route files
+'use client'
+const [data, setData] = useState()
+
+// ❌ NO business logic
+export default function Page() {
+  const processedData = complexCalculation() // NO!
+  useEffect(() => { ... }) // NO!
+  
+  // ❌ NO direct API calls in route component
+  const data = await fetch('/api') // NO! Use in component or server action
+  
+  return <main>...</main>
+}
+
+// ❌ NO inline component definitions
+export default function Page() {
+  const InlineComponent = () => <div>...</div> // NO!
+  return <main><InlineComponent /></main>
+}
+```
+
+## Metadata Configuration
+
+```typescript
+// ✅ CORRECT: Export metadata for SEO
+export const metadata: Metadata = {
+  title: 'Page Title',
+  description: 'Compelling description for search engines',
+  openGraph: {
+    title: 'Page Title',
+    description: 'OG description',
+    images: ['/og-image.jpg'],
+  },
+}
+
+// ✅ CORRECT: Dynamic metadata
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Dynamic Title',
+    description: 'Dynamic description',
+  }
+}
+```
+
+## Layout Files
+
+Root layout in [app/layout.tsx](mdc:app/layout.tsx):
+
+```typescript
+// ✅ CORRECT: Root layout structure
+import type { Metadata } from 'next'
+import { Header } from '@/shared/components/layout/Header'
+import { Footer } from '@/shared/components/layout/Footer'
+import '@/styles/globals.css'
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Your Site',
+    default: 'Your Site',
+  },
+  description: 'Site description',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  )
+}
+```
+
+## Route Organization
+
+```
+app/
+├── layout.tsx              # Root layout
+├── page.tsx                # Homepage (/)
+├── about/
+│   └── page.tsx           # About page (/about)
+├── pricing/
+│   └── page.tsx           # Pricing page (/pricing)
+└── blog/
+    ├── page.tsx           # Blog index (/blog)
+    └── [slug]/
+        └── page.tsx       # Blog post (/blog/post-slug)
+```
+
+## When to Use Client Components
+
+Add `'use client'` ONLY in the component file that needs it, not in route files:
+
+```typescript
+// ❌ WRONG: 'use client' in route file
+'use client'
+export default function Page() { ... }
+
+// ✅ CORRECT: Create interactive component separately
+// features/contact/components/ContactForm/index.tsx
+'use client'
+export function ContactForm() {
+  const [email, setEmail] = useState('')
+  // Interactive logic here
+}
+
+// app/contact/page.tsx (Server Component)
+import { ContactForm } from '@/features/contact/components/ContactForm'
+export default function ContactPage() {
+  return <main><ContactForm /></main>
+}
+```
+
+## Data Loading Patterns
+
+### Server Components (Default)
+
+```typescript
+// ✅ CORRECT: Async Server Component
+export default async function Page() {
+  const data = await fetchData() // Runs on server
+  
+  return (
+    <main>
+      <Component data={data} />
+    </main>
+  )
+}
+```
+
+### Client Components (Interactive)
+
+```typescript
+// In separate component file with 'use client'
+'use client'
+export function InteractiveComponent() {
+  const [data, setData] = useState()
+  
+  useEffect(() => {
+    fetchData().then(setData)
+  }, [])
+  
+  return <div>{/* Use data */}</div>
+}
+```
+
+## Marketing Page Pattern
+
+For marketing/landing pages:
+
+```typescript
+// app/product/page.tsx
+import type { Metadata } from 'next'
+import { 
+  HeroCentered, 
+  FeaturesGrid, 
+  PricingSimple, 
+  TestimonialsGrid,
+  CTASimple 
+} from '@/shared/components/marketing'
+
+export const metadata: Metadata = {
+  title: 'Product',
+  description: 'Product page description',
+}
+
+export default function ProductPage() {
+  return (
+    <main>
+      <HeroCentered {...heroData} />
+      <FeaturesGrid {...featuresData} />
+      <PricingSimple {...pricingData} />
+      <TestimonialsGrid {...testimonialsData} />
+      <CTASimple {...ctaData} />
+    </main>
+  )
+}
+
+// Data can be in same file or imported
+const heroData = { /* ... */ }
+const featuresData = { /* ... */ }
+// etc.
+```
+
+## Navigation
+
+Update navigation in [shared/components/layout/Header/index.tsx](mdc:shared/components/layout/Header/index.tsx):
+
+```typescript
+links={[
+  { label: 'Features', href: '#features' },
+  { label: 'Pricing', href: '/pricing' },  // Add new routes here
+  { label: 'About', href: '/about' },
+]}
+```
+
+## Error Handling
+
+```typescript
+// app/error.tsx
+'use client'
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  )
+}
+```
+
+## Loading States
+
+```typescript
+// app/loading.tsx
+export default function Loading() {
+  return <div>Loading...</div>
+}
+```
+
+## Key Principles
+
+1. **Keep route files thin** - only composition
+2. **Use Server Components by default** - better performance
+3. **Set metadata** for every page - SEO important
+4. **Import from @/ paths** - always use aliases
+5. **No business logic** in route files
+6. **Compose from features** - route files just assemble
+
+See [ARCHITECTURE.md](mdc:ARCHITECTURE.md) for complete architecture details.

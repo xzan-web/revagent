@@ -2,7 +2,7 @@
 
 ## Quick Start Overview
 
-**Stack:** Next.js 15.5.2 (Latest, App Router) • TypeScript • SSG-first with dynamic capabilities
+**Stack:** Next.js 15.5.2 (Latest, App Router) • TypeScript • Tailwind CSS • SSG-first with dynamic capabilities
 
 **Goal:** Simple, fast website starting with two static pages (index and about), scalable for future growth.
 
@@ -27,25 +27,20 @@ lalexi-nextjs-2/
 │   ├── home/                # Homepage feature
 │   │   └── components/      # Homepage-specific components
 │   │       ├── Hero/
-│   │       │   ├── index.tsx
-│   │       │   └── Hero.module.css
+│   │       │   └── index.tsx
 │   │       └── Features/
-│   │           ├── index.tsx
-│   │           └── Features.module.css
+│   │           └── index.tsx
 │   └── about/               # About page feature
 │       └── components/      # About-specific components
 │           ├── TeamSection/
-│           │   ├── index.tsx
-│           │   └── TeamSection.module.css
+│           │   └── index.tsx
 │           └── Mission/
-│               ├── index.tsx
-│               └── Mission.module.css
+│               └── index.tsx
 ├── shared/                   # Shared across all features
 │   ├── components/          # Generic reusable components
 │   │   ├── ui/             # Basic UI elements
 │   │   │   ├── Button/
 │   │   │   │   ├── index.tsx
-│   │   │   │   ├── Button.module.css
 │   │   │   │   ├── Button.types.ts
 │   │   │   │   └── Button.test.tsx
 │   │   │   ├── Card/
@@ -53,14 +48,11 @@ lalexi-nextjs-2/
 │   │   │   └── Modal/
 │   │   └── layout/         # Layout components
 │   │       ├── Header/
-│   │       │   ├── index.tsx
-│   │       │   └── Header.module.css
+│   │       │   └── index.tsx
 │   │       ├── Footer/
-│   │       │   ├── index.tsx
-│   │       │   └── Footer.module.css
+│   │       │   └── index.tsx
 │   │       └── Navigation/
-│   │           ├── index.tsx
-│   │           └── Navigation.module.css
+│   │           └── index.tsx
 │   ├── hooks/               # Shared custom hooks
 │   │   ├── useMediaQuery.ts
 │   │   ├── useLocalStorage.ts
@@ -79,10 +71,7 @@ lalexi-nextjs-2/
 │       ├── routes.ts
 │       └── config.ts
 ├── styles/                   # Global styles only
-│   ├── globals.css          # Base styles & resets
-│   ├── variables.css        # CSS custom properties
-│   ├── typography.css       # Font definitions
-│   └── utilities.css        # Utility classes
+│   └── globals.css          # Tailwind directives & custom styles
 ├── public/                   # Static assets
 │   ├── images/
 │   ├── fonts/
@@ -94,6 +83,8 @@ lalexi-nextjs-2/
 ├── .eslintrc.json           # ESLint configuration
 ├── .gitignore               # Git ignore rules
 ├── .prettierrc              # Code formatting
+├── tailwind.config.ts       # Tailwind CSS configuration
+├── postcss.config.mjs       # PostCSS configuration
 ├── next.config.ts           # Next.js configuration
 ├── package.json             # Dependencies & scripts
 ├── tsconfig.json            # TypeScript configuration
@@ -117,63 +108,89 @@ lalexi-nextjs-2/
 3. **Shared is explicit**: Only truly shared code goes in shared/
 4. **Co-location**: Keep related files together (component + styles + tests + types)
 
-## CSS Organization Best Practices
+## Tailwind CSS Best Practices
 
-### Why Separate CSS from TSX?
+### Why Tailwind CSS?
 
-**Problems with mixed structure:**
-- 🔴 Hard to find styles when debugging
-- 🔴 No clear separation of concerns
-- 🔴 Difficult to share styles between components
-- 🔴 Global styles mixed with component styles
+**Benefits:**
+- ✅ Utility-first approach for rapid development
+- ✅ No naming conflicts or specificity issues
+- ✅ Built-in design system with consistent spacing, colors, etc.
+- ✅ Responsive design with simple modifier syntax
+- ✅ Tree-shaking removes unused CSS automatically
+- ✅ No context switching between files
 
-**Benefits of organized CSS:**
-- ✅ Easy to locate and modify styles
-- ✅ Clear hierarchy (global → shared → component)
-- ✅ Better performance (CSS can be optimized separately)
-- ✅ Easier to migrate to CSS-in-JS or Tailwind later
+**Key Principles:**
+- Use utility classes directly in components
+- Extend Tailwind config for custom design tokens
+- Use `@layer` directives for custom styles
+- Compose utilities for complex, reusable components
 
-### CSS Strategy Recommendations
+### Tailwind Configuration Strategy
 
-#### 1. **CSS Modules** (Recommended for your project)
-```tsx
-// components/Button/Button.tsx
-import styles from './Button.module.css'
+#### 1. **tailwind.config.ts** (Main Configuration)
+```typescript
+import type { Config } from "tailwindcss";
 
-export function Button({ children }) {
-  return <button className={styles.button}>{children}</button>
-}
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./features/**/*.{js,ts,jsx,tsx,mdx}",
+    "./shared/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          primary: '#3b82f6',
+          secondary: '#8b5cf6',
+        },
+      },
+      spacing: {
+        '128': '32rem',
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
 ```
 
+#### 2. **globals.css** (Tailwind Directives & Custom Layers)
 ```css
-/* components/Button/Button.module.css */
-.button {
-  padding: 8px 16px;
-  border-radius: 4px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply text-gray-900 bg-white;
+  }
+  h1 {
+    @apply text-4xl font-bold;
+  }
 }
-```
 
-**Pros:** Scoped styles, no naming conflicts, great DX
-**Cons:** Requires separate CSS files
+/* Custom component classes (when needed) */
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700;
+  }
+}
 
-#### 2. **Global Styles Organization**
-```
-styles/
-├── globals.css         # Base styles, resets
-├── variables.css       # CSS custom properties
-├── typography.css      # Font styles
-├── utilities.css       # Utility classes
-└── themes/
-    ├── light.css      # Light theme variables
-    └── dark.css       # Dark theme variables
+/* Custom utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
 ```
 
 #### 3. **Import Strategy in layout.tsx**
 ```tsx
 // app/layout.tsx
 import '@/styles/globals.css'
-import '@/styles/variables.css'
-import '@/styles/typography.css'
 ```
 
 ### File Naming Conventions
@@ -181,11 +198,11 @@ import '@/styles/typography.css'
 | Type | Convention | Example |
 |------|------------|---------|
 | Components | PascalCase | `Button.tsx`, `HeaderNav.tsx` |
-| CSS Modules | PascalCase.module.css | `Button.module.css` |
-| Global CSS | kebab-case | `globals.css`, `reset.css` |
+| Global CSS | kebab-case | `globals.css` |
 | Utilities | camelCase | `formatDate.ts`, `apiClient.ts` |
 | Types | PascalCase.types.ts | `User.types.ts` |
 | Hooks | camelCase with 'use' | `useAuth.ts`, `useTheme.ts` |
+| Config Files | kebab-case | `tailwind.config.ts`, `postcss.config.mjs` |
 
 ## Core Configuration Files
 
@@ -193,24 +210,29 @@ import '@/styles/typography.css'
 ```json
 {
   "name": "lalexi-nextjs-2",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "15.5.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "typescript": "^5.7.0"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^3",
+    "typescript": "^5",
+    "eslint": "^8",
+    "eslint-config-next": "15.5.2"
   }
 }
 ```
@@ -260,8 +282,8 @@ export default config
 
 ### 1. Initialize Project
 ```bash
-# Using Next.js 15.5.2 (latest)
-npx create-next-app@latest . --typescript --app --no-tailwind --eslint
+# Using Next.js 15.5.2 (latest) with Tailwind CSS
+npx create-next-app@latest . --typescript --app --tailwind --eslint
 ```
 
 ### 2. Create Simple Structure for Two Pages
@@ -283,7 +305,8 @@ mkdir -p tests
 ### 3. Install Dependencies
 ```bash
 npm install
-# Optional but recommended: Add utility for className management
+# Tailwind CSS and its dependencies are already included
+# Optional: Add utility for className management (if needed)
 npm install clsx
 ```
 
@@ -381,8 +404,6 @@ import { Inter } from 'next/font/google'
 import { Header } from '@/shared/components/layout/Header'
 import { Footer } from '@/shared/components/layout/Footer'
 import '@/styles/globals.css'
-import '@/styles/variables.css'
-import '@/styles/typography.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -434,14 +455,15 @@ export default function HomePage() {
 
 ### Feature Component Example (features/home/components/Hero/index.tsx)
 ```typescript
-import styles from './Hero.module.css'
 import { Button } from '@/shared/components/ui/Button'
 
 export function Hero() {
   return (
-    <section className={styles.hero}>
-      <h1 className={styles.title}>Hello World Index</h1>
-      <p className={styles.description}>
+    <section className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <h1 className="text-5xl font-bold text-gray-900 mb-4">
+        Hello World Index
+      </h1>
+      <p className="text-xl text-gray-600 mb-8 max-w-2xl text-center">
         Welcome to our feature-based architecture
       </p>
       <Button>Get Started</Button>
@@ -453,8 +475,6 @@ export function Hero() {
 ### Shared Component Example (shared/components/ui/Button/index.tsx)
 ```typescript
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-import styles from './Button.module.css'
-import { cn } from '@/shared/lib/utils/cn'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
@@ -466,17 +486,26 @@ export function Button({
   children, 
   variant = 'primary',
   size = 'md',
-  className,
+  className = '',
   ...props 
 }: ButtonProps) {
+  const baseStyles = "font-semibold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+  
+  const variantStyles = {
+    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500",
+    secondary: "bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500",
+    outline: "border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500"
+  }
+  
+  const sizeStyles = {
+    sm: "px-3 py-1.5 text-sm",
+    md: "px-4 py-2 text-base",
+    lg: "px-6 py-3 text-lg"
+  }
+  
   return (
     <button 
-      className={cn(
-        styles.button,
-        styles[variant],
-        styles[size],
-        className
-      )}
+      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       {...props}
     >
       {children}
@@ -535,10 +564,9 @@ When you need dynamic features:
 Each feature follows this structure:
 ```
 features/[feature-name]/
-├── components/          # Feature-specific components
+├── components/          # Feature-specific components (styled with Tailwind)
 │   └── ComponentName/
 │       ├── index.tsx
-│       ├── ComponentName.module.css
 │       └── ComponentName.test.tsx
 ├── hooks/              # Feature-specific hooks
 ├── lib/                # Feature-specific utilities
@@ -601,7 +629,7 @@ import '@/styles/globals.css'
 3. ⬜ Implement homepage with Hero section
 4. ⬜ Implement about page with content sections
 5. ⬜ Add navigation between pages
-6. ⬜ Configure global styles and CSS modules
+6. ⬜ Configure Tailwind CSS and global styles
 
 ### Phase 2: Enhancement
 1. ⬜ Implement shared hooks (useMediaQuery, useLocalStorage)
@@ -624,11 +652,11 @@ import '@/styles/globals.css'
 2. Move page-specific components to respective features
 3. Move reusable components to `shared/components/`
 4. Update import paths to use new aliases
-5. Organize styles into feature modules
+5. Style components using Tailwind utility classes
 
 ### Adding a New Page/Feature:
 1. Create feature folder: `features/[feature-name]/`
-2. Add feature components with co-located styles
+2. Add feature components styled with Tailwind
 3. Create route in `app/` that imports from feature
 4. Add feature-specific types, hooks, and utilities as needed
 5. Update navigation to include new page

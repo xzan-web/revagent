@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { Header } from '@/shared/components/layout/Header'
-import { Footer } from '@/shared/components/layout/Footer'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -14,11 +12,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Header />
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         {children}
-        <Footer />
       </body>
     </html>
   )
