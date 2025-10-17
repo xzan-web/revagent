@@ -16,6 +16,67 @@ This is a **Next.js 15.5.2 + Tailwind CSS v4.1.14** starter template optimized f
 - Tailwind CSS: **v4.1.14** (always use latest stable)
 - Check [package.json](mdc:package.json) for current versions
 
+**⚠️ CRITICAL: Tailwind CSS v4 PostCSS Configuration**
+
+Tailwind CSS v4 requires a separate PostCSS plugin package. The main `tailwindcss` package can no longer be used directly as a PostCSS plugin.
+
+**Required Setup:**
+1. Install `@tailwindcss/postcss`:
+```bash
+npm install --save-dev @tailwindcss/postcss
+```
+
+2. Update `postcss.config.mjs`:
+```javascript
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    '@tailwindcss/postcss': {},  // ✅ CORRECT for Tailwind v4
+    autoprefixer: {},
+  },
+};
+export default config;
+```
+
+**WRONG (Tailwind v3 syntax - will cause build errors):**
+```javascript
+// ❌ WRONG - Don't use this
+plugins: {
+  tailwindcss: {},  // This is deprecated in v4
+}
+```
+
+**When creating a new Next.js + Tailwind v4 project:**
+- Always include `@tailwindcss/postcss` in devDependencies
+- Configure PostCSS to use `@tailwindcss/postcss` instead of `tailwindcss`
+- Update CSS imports to use Tailwind v4 syntax (see below)
+
+**Tailwind CSS v4 Import Syntax:**
+
+In your global CSS file (e.g., `styles/globals.css`), use the new v4 import syntax:
+
+```css
+/* ✅ CORRECT for Tailwind v4 */
+@import "tailwindcss";
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply text-gray-900 bg-white;
+  }
+}
+```
+
+**WRONG (Tailwind v3 syntax - will cause build errors):**
+```css
+/* ❌ WRONG - Don't use v3 directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+The single `@import "tailwindcss";` directive replaces all three v3 directives.
+
 ### 2. Feature-Based Architecture
 
 **CORRECT Structure:**
