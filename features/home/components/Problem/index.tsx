@@ -4,7 +4,7 @@ export function Problem() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl lg:text-center">
           <h2 className="text-base/7 font-semibold text-brand-700">Проблема</h2>
-          <p className="mt-5 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">Лучшие приёмы продаж знают 2–3 менеджера. Остальные продают как умеют</p>
+          <p className="mt-5 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">Профессионально продают единицы, остальные менеджеры продают — как умеют</p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:max-w-4xl">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-12">
@@ -13,7 +13,7 @@ export function Problem() {
                 <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-white"><svg aria-hidden="true" className="size-6 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" /> </svg></div>
                 Менеджер А
               </dt>
-              <dd className="mt-1 text-base/7 text-gray-600">Хорошо отвечает на «дорого».</dd>
+              <dd className="mt-1 text-base/7 text-gray-600">Убеждает, что цена оправдана.</dd>
             </div>
             <div className="relative pl-16">
               <dt className="text-base/7 font-semibold text-gray-900">

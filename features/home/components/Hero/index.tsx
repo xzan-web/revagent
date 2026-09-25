@@ -16,7 +16,6 @@ export function Hero() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-start sm:gap-x-6">
             <div className="flex flex-col items-center gap-y-3">
               <a href="#audit" className="rounded-full bg-gray-950 px-5 py-3 text-base font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-950">Получить разбор продаж</a>
-              <p className="text-sm text-gray-500">30 минут на созвоне · Без оплаты</p>
             </div>
             <a href="#how" className="rounded-full px-5 py-3 text-base/6 font-semibold text-gray-900 ring-1 ring-gray-200 hover:ring-gray-300 hover:bg-gray-50/60">Как это работает</a>
           </div>
@@ -46,11 +45,11 @@ export function Hero() {
           </li>
           <li className="flex items-center justify-between gap-3 border-t border-gray-900/10 bg-white px-5 py-5 sm:flex-col sm:items-start sm:border-t-0 sm:border-r">
             <span className="text-xs font-semibold text-gray-500">Шаг 3</span>
-            <span className="flex items-center gap-x-2 text-base font-semibold text-gray-900"><svg aria-hidden="true" className="size-5 flex-none text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /> </svg>Что работает</span>
+            <span className="flex items-center gap-x-2 text-base font-semibold text-gray-900"><svg aria-hidden="true" className="size-5 flex-none text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" /></svg>Анализ</span>
           </li>
           <li className="flex items-center justify-between gap-3 border-t border-gray-900/10 bg-white px-5 py-5 sm:flex-col sm:items-start sm:border-t-0 sm:border-r">
             <span className="text-xs font-semibold text-gray-500">Шаг 4</span>
-            <span className="flex items-center gap-x-2 text-base font-semibold text-gray-900"><svg aria-hidden="true" className="size-5 flex-none text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /> </svg>Менеджеры и ИИ‑агенты</span>
+            <span className="flex items-center gap-x-2 text-base font-semibold text-gray-900"><svg aria-hidden="true" className="size-5 flex-none text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" /></svg>AI</span>
           </li>
           <li className="flex items-center justify-between gap-3 border-t border-gray-900/10 bg-brand-500 px-5 py-5 sm:flex-col sm:items-start sm:border-t-0">
             <span className="text-xs font-semibold text-gray-900/70">Результат</span>
