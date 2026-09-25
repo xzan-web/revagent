@@ -99,3 +99,6 @@ pids
 # Temporary folders
 tmp/
 temp/
+
+# Original static landing (Tailwind Plus licensed files, do not publish)
+/adaptive-sales-landing/

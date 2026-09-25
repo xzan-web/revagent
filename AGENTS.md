@@ -5,10 +5,10 @@ This document provides instructions for AI assistants, copilots, and LLM agents 
 
 ## Project Context
 
-- **Framework**: Next.js 15.5.2 (latest stable) with App Router
+- **Framework**: Next.js 16.3.6 (latest stable) with App Router and React 19.3
 - **Language**: TypeScript (strict mode)
 - **Architecture**: Feature-based structure
-- **Styling**: Tailwind CSS v4.1.14 (latest stable)
+- **Styling**: Tailwind CSS v4.3.3 (latest stable)
 - **Purpose**: Cursor AI-optimized starter for rapid landing page development
 - **Content-Driven**: Uses markdown files to generate components
 - **Component Library**: Pre-built marketing sections (Hero, Features, Pricing, Testimonials, CTA)

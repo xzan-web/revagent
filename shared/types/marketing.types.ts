@@ -19,7 +19,7 @@ export interface HeroProps {
   theme?: 'light' | 'dark' | 'gradient' | 'blue' | 'purple'
 }
 
-export interface HeroSimpleProps extends HeroProps {}
+export type HeroSimpleProps = HeroProps
 
 export interface HeroCenteredProps extends HeroProps {
   image?: string
@@ -80,7 +80,7 @@ export interface PricingProps {
   theme?: 'light' | 'dark'
 }
 
-export interface PricingSimpleProps extends PricingProps {}
+export type PricingSimpleProps = PricingProps
 
 export interface PricingComparisonProps extends PricingProps {
   comparisonFeatures?: string[]

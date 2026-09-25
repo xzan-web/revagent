@@ -2,7 +2,7 @@
 
 ## Quick Start Overview
 
-**Stack:** Next.js 15.5.2 (Latest, App Router) • TypeScript • Tailwind CSS • SSG-first with dynamic capabilities
+**Stack:** Next.js 16.3.6 (Latest, App Router) • TypeScript • Tailwind CSS • SSG-first with dynamic capabilities
 
 **Goal:** Simple, fast website starting with two static pages (index and about), scalable for future growth.
 
@@ -219,7 +219,7 @@ import '@/styles/globals.css'
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.5.2",
+    "next": "16.3.6",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -232,7 +232,7 @@ import '@/styles/globals.css'
     "tailwindcss": "^3",
     "typescript": "^5",
     "eslint": "^8",
-    "eslint-config-next": "15.5.2"
+    "eslint-config-next": "16.3.6"
   }
 }
 ```
@@ -282,7 +282,7 @@ export default config
 
 ### 1. Initialize Project
 ```bash
-# Using Next.js 15.5.2 (latest) with Tailwind CSS
+# Using Next.js 16.3.6 (latest) with Tailwind CSS
 npx create-next-app@latest . --typescript --app --tailwind --eslint
 ```
 

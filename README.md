@@ -6,7 +6,7 @@
 
 - **Content-Driven**: Write content in markdown → Tell Cursor AI → Get a fully styled page
 - **Cursor AI Optimized**: Built-in `.cursorrules` and detailed prompts for AI assistance
-- **Latest Tech Stack**: Next.js 15.5.2 + Tailwind CSS v4.1.14 + TypeScript
+- **Latest Tech Stack**: Next.js 16.3.6 + Tailwind CSS v4.3.3 + TypeScript
 - **Pre-built Components**: Hero, Features, Pricing, Testimonials, CTA sections ready to use
 - **Production-Ready**: Feature-based architecture that scales
 - **Zero Config**: Works perfectly with Tailwind out of the box
@@ -59,8 +59,8 @@ Your subtitle here...
 - **Layout**: Header with navigation, Footer
 
 ### Latest Stable Versions
-- **Next.js**: 15.5.2 (App Router, React Server Components)
-- **Tailwind CSS**: v4.1.14 (Latest utilities, performance)
+- **Next.js**: 16.3.6 (App Router, React Server Components)
+- **Tailwind CSS**: v4.3.3 (Latest utilities, performance)
 - **TypeScript**: 5.x (Strict mode)
 - **React**: 18.x (Concurrent features)
 

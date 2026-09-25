@@ -1,8 +1,50 @@
 @import "tailwindcss";
 
-/* Custom base styles */
+@theme {
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Teal — акцент */
+  --color-brand-50: #D9F2EE;   /* Teal 100 */
+  --color-brand-100: #70D5C6;  /* Teal 300 */
+  --color-brand-400: #1FC1A9;  /* Accent Hover / Bright */
+  --color-brand-500: #1EBCA4;  /* Primary Accent */
+  --color-brand-600: #168977;  /* Teal 500 */
+  --color-brand-700: #2F665C;  /* Teal 600 */
+  --color-brand-800: #26534C;  /* Teal 700 */
+  /* Gray Green — нейтральные */
+  --color-gray-50: #F4F7F6;    /* Background Soft */
+  --color-gray-100: #E6EAEA;
+  --color-gray-200: #D7DFDE;
+  --color-gray-300: #B7C6C5;
+  --color-gray-400: #9DA6A5;
+  --color-gray-500: #566A66;   /* Gray Green 700 — для мелкого текста, контраст ≥ 4.5 */
+  --color-gray-600: #566A66;
+  --color-gray-700: #183A34;   /* Dark Secondary */
+  --color-gray-800: #183A34;
+  --color-gray-900: #121D1B;   /* Main Text Dark */
+  --color-gray-950: #102420;   /* Primary Dark */
+  --color-surface: #EDF1F1;    /* Light Background */
+  --color-on-dark: #E9EDEC;    /* Text on Dark */
+  --color-white: #FEFEFE;
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply text-gray-900 bg-white;
+    @apply bg-white text-gray-900 font-sans antialiased;
+  }
+
+  h1,
+  h2 {
+    text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

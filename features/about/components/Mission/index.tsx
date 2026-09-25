@@ -38,7 +38,7 @@ export function Mission() {
             About Our Mission
           </h1>
           <p className={styles.missionSubtitle}>
-            We're passionate about creating exceptional web experiences that make a difference.
+            We&apos;re passionate about creating exceptional web experiences that make a difference.
           </p>
         </div>
         
@@ -51,11 +51,11 @@ export function Mission() {
             </p>
             <p>
               This Next.js starter template represents our commitment to best practices and modern 
-              development standards. It's designed to help you build faster, more maintainable 
+              development standards. It&apos;s designed to help you build faster, more maintainable 
               applications from day one.
             </p>
             <p>
-              Whether you're building a simple landing page or a complex web application, this 
+              Whether you&apos;re building a simple landing page or a complex web application, this 
               foundation provides the structure and tools you need to succeed.
             </p>
           </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface NavLink {
   label: string
@@ -35,13 +36,13 @@ export function Header({
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               {logo ? (
                 <img src={logo} alt={siteName} className="h-8 w-auto" />
               ) : (
                 <span className="text-2xl font-bold text-blue-600">{siteName}</span>
               )}
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
