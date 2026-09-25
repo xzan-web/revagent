@@ -1,0 +1,145 @@
+.mission {
+  padding: 4rem 0;
+  background: white;
+}
+
+.missionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.missionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.missionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.missionSubtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.missionContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.missionText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.missionText p {
+  margin-bottom: 1.5rem;
+}
+
+.missionText p:last-child {
+  margin-bottom: 0;
+}
+
+.missionVisual {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 1rem;
+  padding: 3rem;
+  color: white;
+  text-align: center;
+}
+
+.missionVisualTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.missionVisualText {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.values {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.valuesTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.valueItem {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.valueIcon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.valueTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.valueDescription {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .mission {
+    padding: 3rem 0;
+  }
+  
+  .missionTitle {
+    font-size: 2rem;
+  }
+  
+  .missionContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .missionVisual {
+    padding: 2rem;
+  }
+  
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

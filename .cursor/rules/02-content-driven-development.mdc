@@ -1,0 +1,241 @@
+---
+globs: .content/**/*.md,app/**/*.tsx
+description: Content-driven development workflow and markdown content parsing
+---
+
+# Content-Driven Development Workflow
+
+## Overview
+
+This template generates landing pages from markdown content files in [.content/](mdc:.content/).
+
+## Content File Structure
+
+### Frontmatter (YAML)
+
+```markdown
+---
+section: hero
+variant: centered
+theme: gradient
+image: /hero.jpg
+imagePosition: right
+columns: 3
+---
+```
+
+**Key Frontmatter Fields:**
+- `section` → Component type (hero, features, pricing, testimonials, cta)
+- `variant` → Component variant (simple, centered, split, grid, list, comparison, slider)
+- `theme` → Color theme (light, dark, gradient, blue, purple)
+- `image` → Image path
+- `imagePosition` → left or right (for split layouts)
+- `columns` → Number of columns (2, 3, 4)
+
+### Content Body (Markdown)
+
+```markdown
+# Main Headline
+Subtitle or description paragraph.
+
+[Button Text](URL) [Another Button](URL)
+
+**Trust indicator or social proof**
+
+---
+
+## Section Title
+Section subtitle text.
+
+### Item Title
+Item description.
+
+- List item 1
+- List item 2
+```
+
+## Component Selection Logic
+
+| Frontmatter | Component | File Location |
+|------------|-----------|---------------|
+| `section: hero` + `variant: simple` | HeroSimple | [shared/components/marketing/Hero/HeroSimple.tsx](mdc:shared/components/marketing/Hero/HeroSimple.tsx) |
+| `section: hero` + `variant: centered` | HeroCentered | [shared/components/marketing/Hero/HeroCentered.tsx](mdc:shared/components/marketing/Hero/HeroCentered.tsx) |
+| `section: hero` + `variant: split` | HeroSplit | [shared/components/marketing/Hero/HeroSplit.tsx](mdc:shared/components/marketing/Hero/HeroSplit.tsx) |
+| `section: features` + `variant: grid` | FeaturesGrid | [shared/components/marketing/Features/FeaturesGrid.tsx](mdc:shared/components/marketing/Features/FeaturesGrid.tsx) |
+| `section: features` + `variant: list` | FeaturesList | [shared/components/marketing/Features/FeaturesList.tsx](mdc:shared/components/marketing/Features/FeaturesList.tsx) |
+| `section: pricing` + `variant: simple` | PricingSimple | [shared/components/marketing/Pricing/PricingSimple.tsx](mdc:shared/components/marketing/Pricing/PricingSimple.tsx) |
+| `section: pricing` + `variant: comparison` | PricingComparison | [shared/components/marketing/Pricing/PricingComparison.tsx](mdc:shared/components/marketing/Pricing/PricingComparison.tsx) |
+| `section: testimonials` + `variant: grid` | TestimonialsGrid | [shared/components/marketing/Testimonials/TestimonialsGrid.tsx](mdc:shared/components/marketing/Testimonials/TestimonialsGrid.tsx) |
+| `section: testimonials` + `variant: slider` | TestimonialsSlider | [shared/components/marketing/Testimonials/TestimonialsSlider.tsx](mdc:shared/components/marketing/Testimonials/TestimonialsSlider.tsx) |
+| `section: cta` + `variant: simple` | CTASimple | [shared/components/marketing/CTA/CTASimple.tsx](mdc:shared/components/marketing/CTA/CTASimple.tsx) |
+| `section: cta` + `variant: split` | CTASplit | [shared/components/marketing/CTA/CTASplit.tsx](mdc:shared/components/marketing/CTA/CTASplit.tsx) |
+
+## Content Extraction Patterns
+
+### Hero Section
+
+**Input:**
+```markdown
+# Build Better Products Faster
+Ship features your customers love.
+[Get Started](#) [View Demo](#)
+**Trusted by 10,000+ teams**
+```
+
+**Extract To:**
+```typescript
+{
+  headline: "Build Better Products Faster",
+  subtitle: "Ship features your customers love.",
+  buttons: [
+    { text: "Get Started", href: "#" },
+    { text: "View Demo", href: "#", variant: "secondary" }
+  ],
+  trustIndicator: "Trusted by 10,000+ teams"
+}
+```
+
+### Features Section
+
+**Input:**
+```markdown
+## Why Choose Us
+Everything you need to succeed.
+
+### Fast Development
+Build 10x faster with our platform.
+
+### Secure & Compliant
+Enterprise-grade security included.
+```
+
+**Extract To:**
+```typescript
+{
+  title: "Why Choose Us",
+  subtitle: "Everything you need to succeed.",
+  features: [
+    { 
+      title: "Fast Development", 
+      description: "Build 10x faster with our platform." 
+    },
+    { 
+      title: "Secure & Compliant", 
+      description: "Enterprise-grade security included." 
+    }
+  ]
+}
+```
+
+### Pricing Section
+
+**Input:**
+```markdown
+## Simple Pricing
+
+### Starter
+$0/month
+Perfect for individuals.
+- Feature 1
+- Feature 2
+[Get Started](#)
+
+### Pro
+$29/month
+**MOST POPULAR**
+For growing businesses.
+- Feature 1
+- Feature 2
+[Start Trial](#)
+```
+
+**Extract To:**
+```typescript
+{
+  title: "Simple Pricing",
+  tiers: [
+    {
+      name: "Starter",
+      price: "$0",
+      period: "month",
+      description: "Perfect for individuals.",
+      features: ["Feature 1", "Feature 2"],
+      cta: { text: "Get Started", href: "#" }
+    },
+    {
+      name: "Pro",
+      price: "$29",
+      period: "month",
+      description: "For growing businesses.",
+      features: ["Feature 1", "Feature 2"],
+      cta: { text: "Start Trial", href: "#" },
+      highlighted: true,
+      badge: "MOST POPULAR"
+    }
+  ]
+}
+```
+
+## Generation Workflow
+
+**Step 1:** User provides content file path
+```
+Generate a landing page from .content/example.md
+```
+
+**Step 2:** Read and parse the content file
+- Extract frontmatter (YAML between `---`)
+- Parse markdown body
+- Separate sections (split by `---`)
+
+**Step 3:** For each section:
+- Identify section type from frontmatter or heading
+- Select appropriate component variant
+- Extract content into prop structure
+- Reference [shared/types/marketing.types.ts](mdc:shared/types/marketing.types.ts) for types
+
+**Step 4:** Generate page file in `app/[page]/page.tsx`:
+
+```typescript
+import type { Metadata } from 'next'
+import { HeroCentered, FeaturesGrid, CTASimple } from '@/shared/components/marketing'
+
+export const metadata: Metadata = {
+  title: 'Page Title',
+  description: 'Page description',
+}
+
+export default function Page() {
+  return (
+    <main>
+      <HeroCentered {...heroData} />
+      <FeaturesGrid {...featuresData} />
+      <CTASimple {...ctaData} />
+    </main>
+  )
+}
+```
+
+## Content Templates
+
+Reference these templates in [.content/templates/](mdc:.content/templates/):
+- [hero.md](mdc:.content/templates/hero.md)
+- [features.md](mdc:.content/templates/features.md)
+- [pricing.md](mdc:.content/templates/pricing.md)
+- [testimonials.md](mdc:.content/templates/testimonials.md)
+- [cta.md](mdc:.content/templates/cta.md)
+
+## Complete Examples
+
+See [.content/examples/landing-page.md](mdc:.content/examples/landing-page.md) for a full landing page example.
+
+## Key Principles
+
+1. **Always read the content file** before generating
+2. **Parse frontmatter correctly** for component selection
+3. **Extract all content accurately** to props
+4. **Use proper TypeScript types** from [shared/types/marketing.types.ts](mdc:shared/types/marketing.types.ts)
+5. **Keep route files thin** - only imports and composition
+6. **Set metadata** for SEO (title, description)
+
+See [AGENTS.md](mdc:AGENTS.md) for complete content-driven development guide.

@@ -1,0 +1,180 @@
+---
+alwaysApply: true
+description: Core principles and architecture for the starter website template
+---
+
+# Cursor AI Starter Template - Core Principles
+
+## Project Overview
+
+This is a **Next.js 15.5.2 + Tailwind CSS v4.1.14** starter template optimized for Cursor AI to generate landing pages quickly using content-driven development.
+
+## Critical Rules - ALWAYS Follow
+
+### 1. Latest Stable Versions Only
+- Next.js: **15.5.2** (always use latest stable)
+- Tailwind CSS: **v4.1.14** (always use latest stable)
+- Check [package.json](mdc:package.json) for current versions
+
+**⚠️ CRITICAL: Tailwind CSS v4 PostCSS Configuration**
+
+Tailwind CSS v4 requires a separate PostCSS plugin package. The main `tailwindcss` package can no longer be used directly as a PostCSS plugin.
+
+**Required Setup:**
+1. Install `@tailwindcss/postcss`:
+```bash
+npm install --save-dev @tailwindcss/postcss
+```
+
+2. Update `postcss.config.mjs`:
+```javascript
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    '@tailwindcss/postcss': {},  // ✅ CORRECT for Tailwind v4
+    autoprefixer: {},
+  },
+};
+export default config;
+```
+
+**WRONG (Tailwind v3 syntax - will cause build errors):**
+```javascript
+// ❌ WRONG - Don't use this
+plugins: {
+  tailwindcss: {},  // This is deprecated in v4
+}
+```
+
+**When creating a new Next.js + Tailwind v4 project:**
+- Always include `@tailwindcss/postcss` in devDependencies
+- Configure PostCSS to use `@tailwindcss/postcss` instead of `tailwindcss`
+- Update CSS imports to use Tailwind v4 syntax (see below)
+
+**Tailwind CSS v4 Import Syntax:**
+
+In your global CSS file (e.g., `styles/globals.css`), use the new v4 import syntax:
+
+```css
+/* ✅ CORRECT for Tailwind v4 */
+@import "tailwindcss";
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply text-gray-900 bg-white;
+  }
+}
+```
+
+**WRONG (Tailwind v3 syntax - will cause build errors):**
+```css
+/* ❌ WRONG - Don't use v3 directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+The single `@import "tailwindcss";` directive replaces all three v3 directives.
+
+### 2. Feature-Based Architecture
+
+**CORRECT Structure:**
+```
+features/[page]/components/  # Page-specific components
+shared/components/marketing/ # Reusable marketing sections
+shared/components/layout/    # Layout components (Header, Footer)
+shared/components/ui/        # Basic UI components
+```
+
+**NEVER Create:**
+- `app/components/` ❌
+- `src/components/` ❌
+- `components/` ❌
+
+### 3. Import Aliases - ALWAYS Use @/
+
+```typescript
+// ✅ CORRECT
+import { HeroCentered } from '@/shared/components/marketing'
+import type { HeroProps } from '@/shared/types/marketing.types'
+
+// ❌ WRONG
+import { HeroCentered } from '../../../shared/components/marketing'
+```
+
+### 4. Styling - Tailwind CSS Only
+
+- ✅ Use Tailwind v4 utility classes
+- ✅ Compose utilities for complex components
+- ✅ Use responsive modifiers (md:, lg:)
+- ❌ NO CSS modules
+- ❌ NO inline styles
+- ❌ NO separate .css files
+
+### 5. TypeScript - Always Typed
+
+- ✅ Use interfaces for props
+- ✅ Export types from [shared/types/marketing.types.ts](mdc:shared/types/marketing.types.ts)
+- ✅ Named exports for components
+- ❌ NEVER use `any` type
+
+### 6. Route Files - Keep Thin
+
+Route files in `app/` should ONLY:
+- Import components
+- Compose layout
+- Define metadata
+
+NO business logic, NO state, NO complex code.
+
+## Content-Driven Development
+
+This template uses **markdown content files** to generate pages:
+
+1. Content files in [.content/](mdc:.content/)
+2. Templates in [.content/templates/](mdc:.content/templates/)
+3. Examples in [.content/examples/](mdc:.content/examples/)
+
+### Workflow:
+```
+User creates .content/my-page.md
+  ↓
+AI reads markdown + frontmatter
+  ↓
+AI selects components from shared/components/marketing/
+  ↓
+AI generates route file with proper imports
+  ↓
+Fully styled page ready
+```
+
+## Component Library
+
+Pre-built marketing sections in [shared/components/marketing/](mdc:shared/components/marketing/):
+
+- **Hero**: Simple, Centered, Split
+- **Features**: Grid, List
+- **Pricing**: Simple, Comparison
+- **Testimonials**: Grid, Slider
+- **CTA**: Simple, Split
+
+See [shared/types/marketing.types.ts](mdc:shared/types/marketing.types.ts) for all prop types.
+
+## Quick Reference
+
+- Architecture details: [ARCHITECTURE.md](mdc:ARCHITECTURE.md)
+- AI development guide: [AGENTS.md](mdc:AGENTS.md)
+- Quick start: [QUICKSTART.md](mdc:QUICKSTART.md)
+- Version management: [UPDATING.md](mdc:UPDATING.md)
+- Cursor configuration: [.cursorrules](mdc:.cursorrules)
+
+## When Generating Code
+
+1. **Read content files first** if user provides them
+2. **Use existing marketing components** before creating new ones
+3. **Follow TypeScript types** in shared/types/
+4. **Keep route files thin** - composition only
+5. **Use Tailwind utilities** - no custom CSS
+6. **Maintain responsive design** - mobile-first
+7. **Include accessibility** - ARIA attributes, alt text
