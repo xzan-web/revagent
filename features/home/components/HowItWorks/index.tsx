@@ -48,7 +48,7 @@ export function HowItWorks() {
             </p>
             <div className="mt-6 flex size-10 items-center justify-center rounded-lg bg-brand-500"><svg aria-hidden="true" className="size-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /> </svg></div>
             <p className="mt-4 text-lg/8 font-semibold tracking-tight text-gray-900">Внедряем и перепроверяем</p>
-            <p className="mt-1 flex-auto text-base/7 text-gray-600">Даём менеджерам конкретные рекомендации или передаём проверенные процессы ИИ-агентам. Затем снова сравниваем работу с результатом.</p>
+            <p className="mt-1 flex-auto text-base/7 text-gray-600">Даём менеджерам конкретные рекомендации или передаём проверенные процессы ИИ‑агентам. Затем снова сравниваем работу с результатом.</p>
             <p className="mt-4 text-sm/6 font-semibold text-gray-900"><span aria-hidden="true" className="text-brand-500">→</span> Каждый цикл опирается на фактическую конверсию</p>
           </div>
         </div>

@@ -41,7 +41,7 @@ export function Comparison() {
               <tr>
                 <th scope="row" className="border-t border-gray-900/10 py-5 pr-4 font-semibold text-gray-900">Что дальше</th>
                 <td className="border-t border-gray-900/10 px-6 py-5 text-gray-600">Обучение по итогам проверки</td>
-                <td className="rounded-b-2xl border-t border-brand-100/60 bg-brand-50 px-6 py-5 font-semibold text-gray-900"><div className="flex gap-x-3"><svg aria-hidden="true" className="mt-0.5 size-5 flex-none text-brand-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" > <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" /> </svg><span>Передача проверенных сценариев ИИ-агентам</span></div></td>
+                <td className="rounded-b-2xl border-t border-brand-100/60 bg-brand-50 px-6 py-5 font-semibold text-gray-900"><div className="flex gap-x-3"><svg aria-hidden="true" className="mt-0.5 size-5 flex-none text-brand-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" > <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" /> </svg><span>Передача проверенных сценариев ИИ‑агентам</span></div></td>
               </tr>
             </tbody>
           </table>
