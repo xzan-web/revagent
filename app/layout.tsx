@@ -16,7 +16,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'SaleBrain — речевая аналитика и ИИ-агенты для отделов продаж',
   description: 'Анализируем 100% звонков и переписок, связываем их с итогом сделки и постепенно передаём продажи ИИ-агентам.',
-  icons: { icon: `${basePath}/favicon.png` },
+  icons: {
+    icon: [
+      { url: `${basePath}/favicon.svg`, type: 'image/svg+xml' },
+      { url: `${basePath}/favicon.png`, type: 'image/png' },
+    ],
+    apple: `${basePath}/apple-touch-icon.png`,
+  },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',

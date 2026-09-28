@@ -5,6 +5,6 @@ interface LogoProps {
   className?: string
 }
 
-export function Logo({ className = 'h-5 w-auto' }: LogoProps) {
+export function Logo({ className = 'h-7 w-auto' }: LogoProps) {
   return <Image src={logo} alt="SaleBrain" className={className} priority />
 }

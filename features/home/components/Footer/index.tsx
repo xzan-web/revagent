@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-16 lg:px-8">
-        <div className="mb-10 flex justify-center"><Logo className="h-5 w-auto" /></div>
+        <div className="mb-10 flex justify-center"><Logo className="h-7 w-auto" /></div>
         <nav aria-label="Навигация по странице" className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
           <a href="#how" className="text-gray-600 hover:text-gray-900">Как работает</a>
           <a href="#diff" className="text-gray-600 hover:text-gray-900">Отличия</a>
