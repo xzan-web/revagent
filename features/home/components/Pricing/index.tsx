@@ -26,7 +26,7 @@ export function Pricing() {
           </ul>
           <a href="#audit" aria-describedby="tier-analysis" className="mt-8 block rounded-full bg-gray-950 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-gray-700 sm:mt-10">Начать с разбора</a>
         </div>
-        <div className="relative rounded-3xl bg-gray-700 p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10">
+        <div className="relative rounded-3xl bg-gray-700 p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 lg:py-14">
           <h3 id="tier-agent" className="text-base/7 font-semibold text-brand-400">ИИ‑агент и оптимизация</h3>
           <p className="mt-4 flex flex-wrap items-baseline gap-x-2">
             <span className="text-4xl font-bold tracking-tight sm:text-5xl text-white whitespace-nowrap tabular-nums">+100 000 ₽</span>
