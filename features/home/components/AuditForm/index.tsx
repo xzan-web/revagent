@@ -13,6 +13,7 @@ export function AuditForm() {
           className="block h-[600px] w-full border-0"
         />
       </div>
+      <p className="mx-auto mt-4 max-w-xl text-center text-sm text-on-dark/70 lg:mr-0 lg:max-w-lg">Бесплатно · NDA по запросу</p>
     </div>
   )
 }
