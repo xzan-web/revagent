@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import logo from '@/public/logo.png'
+import logo from '@/public/logo.svg'
 
 interface LogoProps {
   className?: string
 }
 
-export function Logo({ className = 'h-8 w-auto' }: LogoProps) {
-  return <Image src={logo} alt="Adaptive Sales" className={className} priority />
+export function Logo({ className = 'h-5 w-auto' }: LogoProps) {
+  return <Image src={logo} alt="SaleBrain" className={className} priority />
 }

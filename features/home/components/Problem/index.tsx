@@ -54,7 +54,7 @@ export function Problem() {
           </div>
         </dl>
         <div className="mx-auto mt-16 max-w-4xl rounded-2xl bg-gray-950 px-8 py-10 sm:px-12">
-          <p className="text-xl/8 font-semibold text-white sm:text-2xl/9"><span className="text-brand-500">Adaptive Sales</span> связывает каждый диалог с итогом сделки, находит приёмы, которые работают, и передаёт их всему отделу.</p>
+          <p className="text-xl/8 font-semibold text-white sm:text-2xl/9"><span className="text-brand-500">SaleBrain</span> связывает каждый диалог с итогом сделки, находит приёмы, которые работают, и передаёт их всему отделу.</p>
         </div>
       </div>
     </section>

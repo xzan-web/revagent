@@ -1,3 +1,4 @@
+import { discussLinkProps } from '@/features/home/links'
 import { Calculator } from '@/features/home/components/Calculator'
 
 export function Pricing() {
@@ -38,7 +39,7 @@ export function Pricing() {
             <li className="flex gap-x-3"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="h-6 w-5 flex-none text-brand-400"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" fillRule="evenodd" /></svg>Сверх пакета — от 5 ₽</li>
             <li className="flex gap-x-3"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="h-6 w-5 flex-none text-brand-400"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" fillRule="evenodd" /></svg>Долю агента в продажах наращиваем постепенно</li>
           </ul>
-          <a href="#final" aria-describedby="tier-agent" className="mt-8 block rounded-full bg-white px-3.5 py-2.5 text-center text-sm font-semibold text-gray-950 shadow-xs hover:bg-gray-100 sm:mt-10">Обсудить внедрение</a>
+          <a {...discussLinkProps} aria-describedby="tier-agent" className="mt-8 block rounded-full bg-white px-3.5 py-2.5 text-center text-sm font-semibold text-gray-950 shadow-xs hover:bg-gray-100 sm:mt-10">Обсудить внедрение</a>
         </div>
       </div>
       <div className="mx-auto mt-12 grid max-w-lg grid-cols-1 gap-4 lg:max-w-4xl lg:grid-cols-2">

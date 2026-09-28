@@ -8,13 +8,13 @@ export function Comparison() {
         </div>
         <div className="mx-auto mt-16 max-w-5xl overflow-x-auto">
           <table className="w-full min-w-[640px] table-fixed border-separate border-spacing-0 text-left">
-            <caption className="sr-only">Сравнение типичной речевой аналитики и Adaptive Sales</caption>
+            <caption className="sr-only">Сравнение типичной речевой аналитики и SaleBrain</caption>
             <colgroup><col className="w-1/4" /><col className="w-3/8" /><col className="w-3/8" /></colgroup>
             <thead>
               <tr>
                 <td className="p-0"></td>
                 <th scope="col" className="px-6 pb-4 text-sm/6 font-semibold text-gray-500">Типичная речевая аналитика</th>
-                <th scope="col" className="rounded-t-2xl bg-brand-50 px-6 pt-4 pb-4 text-sm/6 font-semibold text-brand-700 ring-1 ring-brand-50">Adaptive Sales</th>
+                <th scope="col" className="rounded-t-2xl bg-brand-50 px-6 pt-4 pb-4 text-sm/6 font-semibold text-brand-700 ring-1 ring-brand-50">SaleBrain</th>
               </tr>
             </thead>
             <tbody className="text-sm/6">
