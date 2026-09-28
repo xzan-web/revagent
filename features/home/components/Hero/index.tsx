@@ -11,7 +11,7 @@ export function Hero() {
           </div>
         </div>
         <div className="text-center">
-          <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">Продажи, которые учатся на каждом диалоге</h1>
+          <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">Система продаж, которая обучается на каждом диалоге</h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg font-medium text-pretty text-gray-600 sm:text-xl/8">Анализируем 100% звонков и переписок, связываем их с итогом сделки и постепенно передаём продажи ИИ‑агентам.</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-start sm:gap-x-6">
             <div className="flex flex-col items-center gap-y-3">

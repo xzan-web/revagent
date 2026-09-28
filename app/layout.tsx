@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    title: 'SaleBrain — продажи, которые учатся на каждом диалоге',
+    title: 'SaleBrain — система продаж, которая обучается на каждом диалоге',
     description: 'Речевая аналитика и ИИ-агенты для отделов продаж. Звонки, Telegram, MAX, WhatsApp, email, чат на сайте и CRM.',
     images: [`${siteUrl}/og-image.png`],
   },
