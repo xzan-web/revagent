@@ -66,21 +66,69 @@ interface LegalDocumentProps {
   title: string
   blocks: LegalBlock[]
   updated?: string
+  // Готовый PDF документа в public/docs (собирается скриптом npm run pdf:legal)
+  pdf?: { href: string; fileName: string }
+  // Короткое название для хлебных крошек и путь страницы
+  breadcrumb?: { label: string; path: string }
 }
 
-export function LegalDocument({ title, blocks, updated }: LegalDocumentProps) {
+const SITE_URL = 'https://salebrain.ru'
+
+function Breadcrumbs({ label, path }: { label: string; path: string }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: label, item: `${SITE_URL}${path}` },
+    ],
+  }
+  return (
+    <nav aria-label="Хлебные крошки" className="mb-8 print:hidden">
+      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-500">
+        <li><Link href="/" className="hover:text-gray-900">Главная</Link></li>
+        <li aria-hidden="true" className="text-gray-300">/</li>
+        <li aria-current="page" className="font-medium text-gray-900">{label}</li>
+      </ol>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    </nav>
+  )
+}
+
+function DownloadPdf({ href, fileName }: { href: string; fileName: string }) {
+  return (
+    <a
+      href={href}
+      download={fileName}
+      className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-200 hover:bg-gray-50 hover:ring-gray-300 print:hidden"
+    >
+      <svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      </svg>
+      Скачать PDF
+    </a>
+  )
+}
+
+export function LegalDocument({ title, blocks, updated, pdf, breadcrumb }: LegalDocumentProps) {
   return (
     <div className="bg-white">
-      <header className="border-b border-gray-100">
+      <header className="border-b border-gray-100 print:hidden">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
           <Link href="/" aria-label="SaleBrain — на главную"><Logo /></Link>
           <Link href="/" className="text-sm font-semibold text-gray-600 hover:text-gray-900">← На главную</Link>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-6 py-16 text-base/7 text-gray-700 sm:py-20">
+      <main className="mx-auto max-w-3xl px-6 py-16 text-base/7 text-gray-700 sm:py-20 print:max-w-none print:p-0">
+        {breadcrumb ? <Breadcrumbs {...breadcrumb} /> : null}
         <h1 className="text-4xl font-bold tracking-tight text-balance text-gray-900 sm:text-5xl">{title}</h1>
-        {updated ? <p className="mt-4 text-sm text-gray-500">Редакция от {updated}</p> : null}
+        {updated || pdf ? (
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            {pdf ? <DownloadPdf {...pdf} /> : null}
+            {updated ? <p className="text-sm text-gray-500">Редакция от {updated}</p> : null}
+          </div>
+        ) : null}
 
         <div className="mt-10 space-y-4">
           {group(blocks).map((g, i) => {
@@ -100,7 +148,7 @@ export function LegalDocument({ title, blocks, updated }: LegalDocumentProps) {
         </div>
       </main>
 
-      <footer className="border-t border-gray-100">
+      <footer className="border-t border-gray-100 print:hidden">
         <div className="mx-auto max-w-3xl px-6 py-8 text-sm text-gray-500">© 2026 SaleBrain</div>
       </footer>
     </div>
