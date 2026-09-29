@@ -1,5 +1,7 @@
 // Слайдер с отрисованными дашбордами скрыт, но не удалён — чтобы вернуть, раскомментируйте импорт и блок ниже
 // import { HeroDashboard } from '@/features/home/components/HeroDashboard'
+import Image from 'next/image'
+import looper from '@/public/looper.svg'
 import { HeroDemo } from '@/features/home/components/HeroDemo'
 
 export function Hero() {
@@ -7,6 +9,9 @@ export function Hero() {
     <div className="relative isolate px-6 pt-14 lg:px-8">
       <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
         <div className="[clip-path:polygon(74.1%_44.1%,100%_61.6%,97.5%_26.9%,85.5%_0.1%,80.7%_2%,72.5%_32.5%,60.2%_62.4%,52.4%_68.1%,47.5%_58.3%,45.2%_34.5%,27.5%_76.7%,0.1%_64.9%,17.9%_100%,27.6%_76.8%,76.1%_97.7%,74.1%_44.1%)] relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#70D5C6] to-[#D9F2EE] opacity-40 sm:left-[calc(50%-30rem)] sm:w-288.75"></div>
+      </div>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-10 -z-10 h-[46rem] overflow-hidden sm:h-[52rem]">
+        <Image src={looper} alt="" fill priority className="object-cover object-top" />
       </div>
       <div className="mx-auto max-w-4xl pt-28 pb-16 sm:pt-40 lg:pt-44">
         <div className="mb-8 flex justify-center">
@@ -31,7 +36,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-5xl">
-        <p className="text-center text-sm/6 font-semibold text-gray-500">Подключаем каналы, где идут ваши продажи</p>
+        <p className="text-center text-lg/8 font-semibold text-gray-600 sm:text-xl/8">Подключаем каналы, где идут ваши продажи</p>
         <ul role="list" className="mt-5 flex flex-wrap justify-center gap-2">
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"> <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" /> </svg>Звонки</li>
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"> <path d="M3.105 2.288a.75.75 0 0 0-.826.95l1.414 4.926A1.5 1.5 0 0 0 5.135 9.25h6.115a.75.75 0 0 1 0 1.5H5.135a1.5 1.5 0 0 0-1.442 1.086l-1.414 4.926a.75.75 0 0 0 .826.95 28.897 28.897 0 0 0 15.293-7.155.75.75 0 0 0 0-1.114A28.897 28.897 0 0 0 3.105 2.288Z" /> </svg>Telegram</li>

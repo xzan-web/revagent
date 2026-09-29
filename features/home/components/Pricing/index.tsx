@@ -1,5 +1,6 @@
 import { discussLinkProps } from '@/features/home/links'
-import { Calculator } from '@/features/home/components/Calculator'
+// Калькулятор выгоды скрыт, но не удалён — чтобы вернуть, раскомментируйте импорт и строку <Calculator /> ниже
+// import { Calculator } from '@/features/home/components/Calculator'
 
 export function Pricing() {
   return (
@@ -53,7 +54,7 @@ export function Pricing() {
         </div>
       </div>
 
-      <Calculator />
+      {/* <Calculator /> */}
       <p className="mt-8 text-center text-sm text-gray-600">Можно начать с одного канала и расширяться постепенно.</p>
     </section>
   )
