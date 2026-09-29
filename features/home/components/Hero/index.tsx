@@ -1,3 +1,5 @@
+import { HeroDashboard } from '@/features/home/components/HeroDashboard'
+
 export function Hero() {
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -21,6 +23,10 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <div className="mx-auto mb-16 max-w-6xl">
+        <HeroDashboard />
+      </div>
+
       <div className="mx-auto max-w-5xl">
         <p className="text-center text-sm/6 font-semibold text-gray-500">Подключаем каналы, где идут ваши продажи</p>
         <ul role="list" className="mt-5 flex flex-wrap justify-center gap-2">
