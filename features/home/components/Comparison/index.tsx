@@ -2,7 +2,7 @@ export function Comparison() {
   return (
     <section id="diff" className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl lg:text-center">
+        <div className="mx-auto max-w-3xl lg:max-w-6xl lg:text-center">
           <h2 className="text-base/7 font-semibold text-brand-700">Отличия</h2>
           <p className="mt-5 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">Обычная речевая аналитика проверяет скрипт. Мы проверяем, что приводит к продаже</p>
         </div>

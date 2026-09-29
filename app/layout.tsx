@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   description: 'Анализируем 100% звонков и переписок, связываем их с итогом сделки и постепенно передаём продажи ИИ-агентам.',
   icons: {
     icon: [
+      { url: `${basePath}/favicon.ico`, sizes: '48x48' },
       { url: `${basePath}/favicon.svg`, type: 'image/svg+xml' },
       { url: `${basePath}/favicon.png`, type: 'image/png' },
     ],
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     title: 'SaleBrain — система продаж, которая обучается на каждом диалоге',
     description: 'Речевая аналитика и ИИ-агенты для отделов продаж. Звонки, Telegram, MAX, WhatsApp, email, чат на сайте и CRM.',
-    images: [`${siteUrl}/og-image.png`],
+    images: [{ url: `${siteUrl}/og-salebrain.png`, width: 1200, height: 630, alt: 'SaleBrain — система продаж, которая обучается на каждом диалоге' }],
   },
 }
 
