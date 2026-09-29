@@ -3,6 +3,7 @@ import { Hero } from '@/features/home/components/Hero'
 import { Problem } from '@/features/home/components/Problem'
 import { Comparison } from '@/features/home/components/Comparison'
 import { HowItWorks } from '@/features/home/components/HowItWorks'
+import { ContinuousImprovement } from '@/features/home/components/ContinuousImprovement'
 import { Outcomes } from '@/features/home/components/Outcomes'
 import { Configuration } from '@/features/home/components/Configuration'
 import { Audit } from '@/features/home/components/Audit'
@@ -22,6 +23,7 @@ export default function HomePage() {
         <Problem />
         <Comparison />
         <HowItWorks />
+        <ContinuousImprovement />
         <Outcomes />
         <Configuration />
         <Audit />
