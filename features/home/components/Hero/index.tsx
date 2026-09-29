@@ -1,4 +1,6 @@
-import { HeroDashboard } from '@/features/home/components/HeroDashboard'
+// Слайдер с отрисованными дашбордами скрыт, но не удалён — чтобы вернуть, раскомментируйте импорт и блок ниже
+// import { HeroDashboard } from '@/features/home/components/HeroDashboard'
+import { HeroDemo } from '@/features/home/components/HeroDemo'
 
 export function Hero() {
   return (
@@ -24,7 +26,8 @@ export function Hero() {
         </div>
       </div>
       <div className="mx-auto mb-16 max-w-6xl">
-        <HeroDashboard />
+        <HeroDemo />
+        {/* <HeroDashboard /> */}
       </div>
 
       <div className="mx-auto max-w-5xl">

@@ -1,6 +1,5 @@
 import { Header } from '@/features/home/components/Header'
 import { Hero } from '@/features/home/components/Hero'
-import { HeroAnimation } from '@/features/home/components/HeroAnimation'
 import { Problem } from '@/features/home/components/Problem'
 import { Comparison } from '@/features/home/components/Comparison'
 import { HowItWorks } from '@/features/home/components/HowItWorks'
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <HeroAnimation />
         <Problem />
         <Comparison />
         <HowItWorks />
