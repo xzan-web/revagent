@@ -23,11 +23,6 @@ const cycle: { icon: IconName; title: string; text: string }[] = [
   { icon: 'trend', title: 'Продают лучше', text: 'Менеджеры получают свежие рекомендации, AI‑агент отвечает точнее.' },
 ]
 
-const months = [
-  { label: 'Месяц 1', text: 'Первые работающие приёмы из ваших текущих диалогов', knowledge: 'w-1/4', agent: 'w-1/6' },
-  { label: 'Месяц 3', text: 'База знаний покрывает основные возражения и этапы воронки', knowledge: 'w-3/5', agent: 'w-1/2' },
-  { label: 'Месяц 6 и дальше', text: 'Агент берёт типовые диалоги, база знаний продолжает пополняться', knowledge: 'w-11/12', agent: 'w-5/6' },
-]
 
 export function ContinuousImprovement() {
   return (
@@ -57,28 +52,6 @@ export function ContinuousImprovement() {
         <div className="mx-auto mt-4 flex max-w-2xl items-center gap-x-3 rounded-2xl border border-dashed border-brand-400/40 px-6 py-4 text-sm/6 font-semibold text-brand-400 lg:max-w-none lg:justify-center">
           <Icon name="loop" className="size-5 flex-none" />
           <span>…и снова: новые диалоги пополняют базу знаний. Цикл повторяется каждый месяц</span>
-        </div>
-
-        <div className="mx-auto mt-20 max-w-2xl lg:max-w-none">
-          <h3 className="text-xl font-bold tracking-tight text-white">Что меняется со временем</h3>
-          <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
-            {months.map((m) => (
-              <div key={m.label} className="flex flex-col rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
-                <p className="text-sm/6 font-semibold text-brand-400">{m.label}</p>
-                <p className="mt-2 flex-auto text-base/7 text-white">{m.text}</p>
-                <div aria-hidden="true" className="mt-6 space-y-3 text-xs text-on-dark/60">
-                  <div>
-                    <p>База знаний продаж</p>
-                    <div className="mt-1.5 h-1.5 rounded-full bg-white/10"><div className={`h-full rounded-full bg-brand-500 ${m.knowledge}`} /></div>
-                  </div>
-                  <div>
-                    <p>Качество ответов AI‑агента</p>
-                    <div className="mt-1.5 h-1.5 rounded-full bg-white/10"><div className={`h-full rounded-full bg-brand-100 ${m.agent}`} /></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
