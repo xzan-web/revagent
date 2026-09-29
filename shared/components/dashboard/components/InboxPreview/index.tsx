@@ -76,10 +76,7 @@ export function InboxPreview() {
     <div inert className="flex h-[584px] bg-white text-left text-gray-900 select-none">
       {/* Каналы и метки */}
       <aside className="hidden w-52 shrink-0 flex-col border-r border-gray-100 bg-gray-50/60 lg:flex">
-        <div className="flex items-center gap-2 px-4 pt-4 pb-3">
-          <span className="flex size-6 items-center justify-center rounded-md bg-gray-900 text-white"><Icon name="chat" className="size-3.5" /></span>
-          <p className="text-sm font-semibold">Чаты</p>
-        </div>
+        <p className="px-4 pt-4 pb-3 text-lg font-semibold tracking-tight text-gray-900 sm:text-xl">Чаты</p>
         <div className="mx-3 flex items-center gap-2 rounded-lg bg-white px-2.5 py-1.5 text-xs text-gray-400 ring-1 ring-gray-900/10">
           <Icon name="search" className="size-3.5" />
           Поиск…
