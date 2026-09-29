@@ -4,7 +4,7 @@ export function Problem() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl lg:text-center">
           <h2 className="text-base/7 font-semibold text-brand-700">Проблема</h2>
-          <p className="mt-5 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">Профессионально продают единицы, остальные менеджеры продают — как умеют</p>
+          <p className="mt-5 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">Профессионально продают единицы, остальные менеджеры продают как умеют</p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:max-w-4xl">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-12">
