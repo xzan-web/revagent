@@ -1,3 +1,5 @@
+import { Logo } from '@/shared/components/ui/Logo'
+
 export function Comparison() {
   return (
     <section id="diff" className="bg-white py-24 sm:py-32">
@@ -14,7 +16,7 @@ export function Comparison() {
               <tr>
                 <td className="p-0"></td>
                 <th scope="col" className="px-6 pb-4 text-sm/6 font-semibold text-gray-500">Типичная речевая аналитика</th>
-                <th scope="col" className="rounded-t-2xl bg-brand-50 px-6 pt-4 pb-4 text-sm/6 font-semibold text-brand-700 ring-1 ring-brand-50">SaleBrain</th>
+                <th scope="col" className="rounded-t-2xl bg-brand-50 px-6 pt-4 pb-4 text-sm/6 font-semibold text-brand-700 ring-1 ring-brand-50"><Logo className="h-6 w-auto" /></th>
               </tr>
             </thead>
             <tbody className="text-sm/6">
