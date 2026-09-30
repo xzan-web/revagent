@@ -25,12 +25,7 @@ export function Hero() {
           </div>
         </div>
       </div>
-      <div className="mx-auto mb-16 max-w-6xl">
-        <HeroDemo />
-        {/* <HeroDashboard /> */}
-      </div>
-
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto mb-12 max-w-5xl">
         <p className="text-center text-lg/8 font-semibold text-gray-600 sm:text-xl/8">Подключаем каналы, где идут ваши продажи</p>
         <ul role="list" className="mt-5 flex flex-wrap justify-center gap-2">
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"> <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" /> </svg>Звонки</li>
@@ -42,6 +37,11 @@ export function Hero() {
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2c-2.236 0-4.43.18-6.57.524C1.993 2.755 1 4.014 1 5.426v5.148c0 1.413.993 2.67 2.43 2.902 1.168.188 2.352.327 3.55.414.28.02.521.18.642.413l1.713 3.293a.75.75 0 0 0 1.33 0l1.713-3.293a.783.783 0 0 1 .642-.413 41.102 41.102 0 0 0 3.55-.414c1.437-.231 2.43-1.49 2.43-2.902V5.426c0-1.413-.993-2.67-2.43-2.902A41.289 41.289 0 0 0 10 2ZM6.75 6a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 2.5a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Z" clipRule="evenodd" /> </svg>Чат на сайте</li>
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M2 4.25A2.25 2.25 0 0 1 4.25 2h11.5A2.25 2.25 0 0 1 18 4.25v8.5A2.25 2.25 0 0 1 15.75 15h-3.105a3.501 3.501 0 0 0 1.1 1.677A.75.75 0 0 1 13.26 18H6.74a.75.75 0 0 1-.484-1.323A3.501 3.501 0 0 0 7.355 15H4.25A2.25 2.25 0 0 1 2 12.75v-8.5Zm1.5 0a.75.75 0 0 1 .75-.75h11.5a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75v-7.5Z" clipRule="evenodd" /> </svg>CRM</li>
         </ul>
+      </div>
+
+      <div className="mx-auto max-w-6xl">
+        <HeroDemo />
+        {/* <HeroDashboard /> */}
       </div>
       <div className="mx-auto mt-14 max-w-6xl pb-24 sm:pb-32">
         <ol className="grid grid-cols-1 overflow-hidden rounded-2xl bg-gray-950/5 ring-1 ring-gray-900/10 sm:grid-cols-5">
