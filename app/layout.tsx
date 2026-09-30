@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ru_RU',
     title: 'SaleBrain — система продаж, которая обучается на каждом диалоге',
-    description: 'Речевая аналитика и ИИ-агенты для отделов продаж. Звонки, Telegram, MAX, WhatsApp, email, чат на сайте и CRM.',
+    description: 'Речевая аналитика и ИИ-агенты для отделов продаж. Звонки, Telegram, MAX, WhatsApp, Avito, email, чат на сайте и CRM.',
     images: [{ url: `${siteUrl}/og-salebrain.png`, width: 1200, height: 630, alt: 'SaleBrain — система продаж, которая обучается на каждом диалоге' }],
   },
 }

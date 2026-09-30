@@ -15,7 +15,7 @@ export function HowItWorks() {
             </p>
             <div className="mt-6 flex size-10 items-center justify-center rounded-lg bg-brand-500"><svg aria-hidden="true" className="size-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /> </svg></div>
             <p className="mt-4 text-lg/6 font-semibold tracking-tight text-gray-900">Подключаем каналы и CRM</p>
-            <p className="mt-1 flex-auto text-base/7 text-gray-600">Звонки, Telegram, MAX, WhatsApp, email, чат на сайте и данные о сделках. Видим 100% диалогов, а не выборку.</p>
+            <p className="mt-1 flex-auto text-base/7 text-gray-600">Звонки, Telegram, MAX, WhatsApp, Avito, email, чат на сайте и данные о сделках. Видим 100% диалогов, а не выборку.</p>
             <p className="mt-4 text-sm/6 font-semibold text-gray-900"><span aria-hidden="true" className="text-brand-500">→</span> Все разговоры и переписки в одном месте</p>
           </div>
           <div className="flex flex-col">
