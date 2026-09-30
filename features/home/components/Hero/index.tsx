@@ -26,7 +26,7 @@ export function Hero() {
         </div>
       </div>
       <div className="mx-auto mb-12 max-w-5xl">
-        <p className="text-center text-lg/8 font-semibold text-gray-600 sm:text-xl/8">Подключаем каналы, где идут ваши продажи</p>
+        <p className="text-center text-base/7 font-semibold text-brand-700 sm:text-lg/8">Собираем в&nbsp;одном месте все каналы, где идут ваши продажи</p>
         <ul role="list" className="mt-5 flex flex-wrap justify-center gap-2">
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"> <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" /> </svg>Звонки</li>
           <li className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-900/10"><svg aria-hidden="true" className="size-4 text-brand-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"> <path d="M3.105 2.288a.75.75 0 0 0-.826.95l1.414 4.926A1.5 1.5 0 0 0 5.135 9.25h6.115a.75.75 0 0 1 0 1.5H5.135a1.5 1.5 0 0 0-1.442 1.086l-1.414 4.926a.75.75 0 0 0 .826.95 28.897 28.897 0 0 0 15.293-7.155.75.75 0 0 0 0-1.114A28.897 28.897 0 0 0 3.105 2.288Z" /> </svg>Telegram</li>
