@@ -1,7 +1,5 @@
 // Слайдер с отрисованными дашбордами скрыт, но не удалён — чтобы вернуть, раскомментируйте импорт и блок ниже
 // import { HeroDashboard } from '@/features/home/components/HeroDashboard'
-import Image from 'next/image'
-import looper from '@/public/looper.svg'
 import { HeroDemo } from '@/features/home/components/HeroDemo'
 
 export function Hero() {
@@ -9,9 +7,6 @@ export function Hero() {
     <div className="relative isolate px-6 pt-14 lg:px-8">
       <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
         <div className="[clip-path:polygon(74.1%_44.1%,100%_61.6%,97.5%_26.9%,85.5%_0.1%,80.7%_2%,72.5%_32.5%,60.2%_62.4%,52.4%_68.1%,47.5%_58.3%,45.2%_34.5%,27.5%_76.7%,0.1%_64.9%,17.9%_100%,27.6%_76.8%,76.1%_97.7%,74.1%_44.1%)] relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#70D5C6] to-[#D9F2EE] opacity-40 sm:left-[calc(50%-30rem)] sm:w-288.75"></div>
-      </div>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-10 -z-10 h-[46rem] overflow-hidden sm:h-[52rem]">
-        <Image src={looper} alt="" fill priority className="object-cover object-top" />
       </div>
       <div className="mx-auto max-w-4xl pt-28 pb-16 sm:pt-40 lg:pt-44">
         <div className="mb-8 flex justify-center">
