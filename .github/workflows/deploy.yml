@@ -18,7 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_SITE_URL: https://salebrain.ru
+      # Пока на домене нет HTTPS-сертификата, превью (og:image) отдаём по http — иначе мессенджеры не могут скачать картинку.
+      # Когда HTTPS заработает, вернуть https://salebrain.ru
+      NEXT_PUBLIC_SITE_URL: http://salebrain.ru
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
