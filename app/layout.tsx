@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Onest } from 'next/font/google'
 import '@/styles/globals.css'
 
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     ],
     apple: `${basePath}/apple-touch-icon.png`,
   },
+  manifest: `${basePath}/site.webmanifest`,
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
@@ -31,6 +32,10 @@ export const metadata: Metadata = {
     description: 'Речевая аналитика и ИИ-агенты для отделов продаж. Звонки, Telegram, MAX, WhatsApp, Avito, email, чат на сайте и CRM.',
     images: [{ url: `${siteUrl}/og-salebrain.png`, width: 1200, height: 630, alt: 'SaleBrain — система продаж, которая обучается на каждом диалоге' }],
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#168977',
 }
 
 export default function RootLayout({
