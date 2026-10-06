@@ -60,7 +60,48 @@ function group(blocks: LegalBlock[]): Group[] {
   return out
 }
 
-export type LegalBlock = { type: 'h2' | 'h3' | 'p' | 'dash' | 'bullet' | 'label'; text: string }
+// Ячейка таблицы — список абзацев; несколько абзацев выводятся списком
+type LegalCell = string[]
+
+export type LegalBlock =
+  | { type: 'h2' | 'h3' | 'p' | 'dash' | 'bullet' | 'label'; text: string }
+  | { type: 'table'; head?: string[]; rows: LegalCell[][] }
+
+function Cell({ cell }: { cell: LegalCell }) {
+  if (cell.length === 0) return <span className="text-gray-400">—</span>
+  if (cell.length === 1) return <Rich text={cell[0]} />
+  return (
+    <ul className="list-disc space-y-1 pl-5 marker:text-brand-600">
+      {cell.map((item, k) => <li key={k}><Rich text={item} /></li>)}
+    </ul>
+  )
+}
+
+// Таблица без шапки — пары «название — значение» (первая колонка как заголовок строки)
+function LegalTable({ head, rows }: { head?: string[]; rows: LegalCell[][] }) {
+  return (
+    <div className="!mt-6 overflow-x-auto rounded-xl ring-1 ring-gray-200 print:overflow-visible">
+      <table className="w-full text-left text-sm/6">
+        {head ? (
+          <thead className="bg-gray-50 text-gray-900">
+            <tr>{head.map((h, k) => <th key={k} scope="col" className="min-w-40 px-4 py-3 align-bottom font-semibold">{h}</th>)}</tr>
+          </thead>
+        ) : null}
+        <tbody className="divide-y divide-gray-200">
+          {rows.map((row, r) => (
+            <tr key={r} className={!head && r === 0 ? 'bg-gray-50' : undefined}>
+              {row.map((cell, c) =>
+                !head && c === 0
+                  ? <th key={c} scope="row" className="w-1/3 px-4 py-3 align-top font-semibold text-gray-900"><Cell cell={cell} /></th>
+                  : <td key={c} className={`px-4 py-3 align-top ${head ? 'min-w-40' : ''} ${!head && r === 0 ? 'font-semibold text-gray-900' : ''}`}><Cell cell={cell} /></td>,
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 interface LegalDocumentProps {
   title: string
@@ -139,6 +180,7 @@ export function LegalDocument({ title, blocks, updated, pdf, breadcrumb }: Legal
                 </ul>
               )
             }
+            if (g.block.type === 'table') return <LegalTable key={i} head={g.block.head} rows={g.block.rows} />
             const { type, text } = g.block
             if (type === 'h2') return <h2 key={i} className="!mt-12 text-xl font-bold tracking-tight text-gray-900">{text}</h2>
             if (type === 'h3') return <h3 key={i} className="!mt-8 text-lg font-semibold tracking-tight text-gray-900">{text}</h3>

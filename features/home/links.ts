@@ -1,4 +1,3 @@
-// Запись на звонок (Fillout) для кнопок «Обсудить внедрение»
-export const BOOKING_URL = 'https://form.fillout.com/t/argTXom61Lus'
-
-export const discussLinkProps = { href: BOOKING_URL, target: '_blank', rel: 'noopener noreferrer' }
+// Кнопки «Обсудить внедрение» ведут к форме заявки Битрикс24 на этой же странице:
+// данные с форм должны храниться в РФ (152-ФЗ), поэтому зарубежные конструкторы форм не используем
+export const discussLinkProps = { href: '#audit-form' }
