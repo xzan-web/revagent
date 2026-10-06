@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Onest } from 'next/font/google'
+import { CookieNotice } from '@/shared/components/layout/CookieNotice'
+import { YandexMetrika } from '@/shared/components/analytics/YandexMetrika'
 import '@/styles/globals.css'
 
 const onest = Onest({
@@ -47,6 +49,8 @@ export default function RootLayout({
     <html lang="ru" className={onest.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
+        <CookieNotice />
+        <YandexMetrika />
       </body>
     </html>
   )
